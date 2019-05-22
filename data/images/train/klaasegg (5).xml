@@ -1,0 +1,26 @@
+<annotation>
+	<folder>egg4</folder>
+	<filename>klaasegg (5).jpg</filename>
+	<path>C:\Users\klaas\OneDrive\Afbeeldingen\egg4\klaasegg (5).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>580</width>
+		<height>326</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>291</xmin>
+			<ymin>90</ymin>
+			<xmax>348</xmax>
+			<ymax>134</ymax>
+		</bndbox>
+	</object>
+</annotation>

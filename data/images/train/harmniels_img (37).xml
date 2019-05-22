@@ -1,0 +1,38 @@
+<annotation>
+	<folder>eifotos harm en niels</folder>
+	<filename>harmniels_img (37).jpg</filename>
+	<path>C:\Users\Ikke\Desktop\ei\eifotos harm en niels\harmniels_img (37).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>378</width>
+		<height>504</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>127</xmin>
+			<ymin>133</ymin>
+			<xmax>177</xmax>
+			<ymax>172</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>195</xmin>
+			<ymin>263</ymin>
+			<xmax>239</xmax>
+			<ymax>320</ymax>
+		</bndbox>
+	</object>
+</annotation>

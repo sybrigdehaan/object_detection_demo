@@ -1,0 +1,26 @@
+<annotation>
+	<folder>kip</folder>
+	<filename>Kip (29).jpg</filename>
+	<path>C:\Users\klaas\OneDrive\Afbeeldingen\kip\Kip (29).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>374</width>
+		<height>664</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chicken_front</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>21</xmin>
+			<ymin>133</ymin>
+			<xmax>290</xmax>
+			<ymax>453</ymax>
+		</bndbox>
+	</object>
+</annotation>

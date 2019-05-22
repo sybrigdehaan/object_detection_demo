@@ -1,0 +1,38 @@
+<annotation>
+	<folder>roodbakje</folder>
+	<filename>red_tray (21).jpg</filename>
+	<path>C:\Users\klaas\OneDrive\Afbeeldingen\roodbakje\red_tray (21).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>504</width>
+		<height>378</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tray_front</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>157</xmin>
+			<ymin>83</ymin>
+			<xmax>262</xmax>
+			<ymax>231</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>tray_right</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>239</xmin>
+			<ymin>60</ymin>
+			<xmax>375</xmax>
+			<ymax>230</ymax>
+		</bndbox>
+	</object>
+</annotation>

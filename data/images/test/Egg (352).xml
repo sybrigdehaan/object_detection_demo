@@ -1,0 +1,38 @@
+<annotation>
+	<folder>test</folder>
+	<filename>Egg (352).jpg</filename>
+	<path>C:\Users\klaas\Desktop\test\Egg (352).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>326</width>
+		<height>580</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>184</xmin>
+			<ymin>276</ymin>
+			<xmax>234</xmax>
+			<ymax>315</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>140</xmin>
+			<ymin>342</ymin>
+			<xmax>179</xmax>
+			<ymax>395</ymax>
+		</bndbox>
+	</object>
+</annotation>

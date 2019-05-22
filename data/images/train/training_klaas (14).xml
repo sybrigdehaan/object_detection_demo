@@ -1,0 +1,26 @@
+<annotation>
+	<folder>training_foto's</folder>
+	<filename>training_klaas (14).jpg</filename>
+	<path>C:\Users\klaas\OneDrive\Afbeeldingen\training_foto's\training_klaas (14).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>580</width>
+		<height>326</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>stairs</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>105</xmin>
+			<ymin>20</ymin>
+			<xmax>494</xmax>
+			<ymax>267</ymax>
+		</bndbox>
+	</object>
+</annotation>

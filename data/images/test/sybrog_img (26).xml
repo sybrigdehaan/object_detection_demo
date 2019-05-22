@@ -1,0 +1,38 @@
+<annotation>
+	<folder>trainfoto</folder>
+	<filename>sybrog_img (26).jpg</filename>
+	<path>C:\Users\Ikke\Desktop\wytze trainfoto\trainfoto\sybrog_img (26).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1200</width>
+		<height>1600</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>egg</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>628</xmin>
+			<ymin>704</ymin>
+			<xmax>701</xmax>
+			<ymax>758</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>tray_left</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>559</xmin>
+			<ymin>555</ymin>
+			<xmax>826</xmax>
+			<ymax>678</ymax>
+		</bndbox>
+	</object>
+</annotation>

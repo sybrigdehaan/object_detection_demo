@@ -1,0 +1,26 @@
+<annotation>
+	<folder>trainfoto</folder>
+	<filename>wytze_imgA (66).jpg</filename>
+	<path>C:\Users\Ikke\Desktop\wytze trainfoto\trainfoto\wytze_imgA (66).jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>664</width>
+		<height>374</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tray_left</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>300</xmin>
+			<ymin>98</ymin>
+			<xmax>335</xmax>
+			<ymax>143</ymax>
+		</bndbox>
+	</object>
+</annotation>
