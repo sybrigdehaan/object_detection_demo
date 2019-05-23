@@ -1,13 +1,13 @@
 <annotation>
 	<folder>test</folder>
-	<filename>Egg (33).jpg</filename>
-	<path>C:\Users\klaas\Desktop\test\Egg (33).jpg</path>
+	<filename>egg (33).jpg</filename>
+	<path>C:\Users\klaas\Dropbox\HBO-ICT\Jaar-2\Robotica\object_detection_demo\data\images\test\egg (33).jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>664</width>
-		<height>374</height>
+		<width>1160</width>
+		<height>652</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>449</xmin>
-			<ymin>79</ymin>
-			<xmax>571</xmax>
-			<ymax>170</ymax>
+			<xmin>671</xmin>
+			<ymin>134</ymin>
+			<xmax>711</xmax>
+			<ymax>169</ymax>
 		</bndbox>
 	</object>
 </annotation>

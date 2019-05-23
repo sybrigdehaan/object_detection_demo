@@ -1,26 +1,26 @@
 <annotation>
 	<folder>train</folder>
-	<filename>Egg (62).jpg</filename>
-	<path>C:\Users\Ikke\Downloads\train\train\Egg (62).jpg</path>
+	<filename>egg (62).jpg</filename>
+	<path>C:\Users\klaas\Dropbox\HBO-ICT\Jaar-2\Robotica\object_detection_demo\data\images\train\egg (62).jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>664</width>
-		<height>374</height>
+		<width>1160</width>
+		<height>652</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>egg</name>
 		<pose>Unspecified</pose>
-		<truncated>1</truncated>
+		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1</xmin>
-			<ymin>1</ymin>
-			<xmax>304</xmax>
-			<ymax>271</ymax>
+			<xmin>580</xmin>
+			<ymin>228</ymin>
+			<xmax>606</xmax>
+			<ymax>254</ymax>
 		</bndbox>
 	</object>
 </annotation>

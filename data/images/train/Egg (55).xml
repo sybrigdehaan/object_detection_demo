@@ -1,13 +1,13 @@
 <annotation>
 	<folder>train</folder>
-	<filename>Egg (55).jpg</filename>
-	<path>C:\Users\Ikke\Downloads\train\train\Egg (55).jpg</path>
+	<filename>egg (55).jpg</filename>
+	<path>C:\Users\klaas\Dropbox\HBO-ICT\Jaar-2\Robotica\object_detection_demo\data\images\train\egg (55).jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>664</width>
-		<height>374</height>
+		<width>1160</width>
+		<height>652</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>243</xmin>
-			<ymin>85</ymin>
-			<xmax>374</xmax>
-			<ymax>218</ymax>
+			<xmin>683</xmin>
+			<ymin>150</ymin>
+			<xmax>710</xmax>
+			<ymax>176</ymax>
 		</bndbox>
 	</object>
 </annotation>
