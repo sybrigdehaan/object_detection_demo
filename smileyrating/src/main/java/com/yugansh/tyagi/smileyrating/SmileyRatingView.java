@@ -2,6 +2,7 @@ package com.yugansh.tyagi.smileyrating;
 
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -10,22 +11,23 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
-/**
- * Created by Yugansh Tyagi on 4/19/2018.
- */
+import java.util.logging.Logger;
+
 public class SmileyRatingView extends View {
 
-    private int faceColor, eyesColor, mouthColor, tongueColor;
+    private int faceColor,faceColorRed, eyesColor, mouthColor, tongueColor, eyeBrowThickniss;
     private RectF faceBgOval, sadOval, neutralOval, slightHappyOval, happyOval, amazingOval, tongueOval;
     private Paint paint;
     int centerOffset, viewWidth, viewHeight,
-            whatToDraw = 2, defaultRating, strokeWidth, eyeRadius;
+            whatToDraw = 0, defaultRating, strokeWidth, eyeRadius;
 
-    int currEyeLX, currEyeRX, currEyeY;
+    int currEyeLX, currEyeRX, currEyeY, eyeTopMargin;
 
     ValueAnimator rightEyeAnimatorX, leftEyeAnimatorX, eyesAnimatorY;
     final long animationDuration = 300;
@@ -60,6 +62,7 @@ public class SmileyRatingView extends View {
         try {
             faceColor = typedArray.getColor(R.styleable.SmileyRatingView_face_color,
                     getResources().getColor(R.color.faceColor));
+            faceColorRed = getResources().getColor(R.color.faceColorRed);
             eyesColor = typedArray.getColor(R.styleable.SmileyRatingView_eyes_color,
                     getResources().getColor(R.color.eyesColor));
             mouthColor = typedArray.getColor(R.styleable.SmileyRatingView_mouth_color,
@@ -78,12 +81,18 @@ public class SmileyRatingView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        viewWidth = getMeasuredWidth();
-        viewHeight = getMeasuredHeight();
+
+        DisplayMetrics screenMetrics = getContext().getResources().getDisplayMetrics();
+        viewWidth = getMeasuredWidth() == 0 ? screenMetrics.widthPixels : getMeasuredWidth();// == 0 ? width : getMeasuredWidth();
+        viewHeight = getMeasuredHeight() == 0 ? screenMetrics.heightPixels : getMeasuredHeight();// == 0 ? height : getMeasuredHeight();
 
         strokeWidth = viewHeight / 30 + viewWidth / 30;
         eyeRadius = viewHeight / 25 + viewWidth / 25;
+        eyeTopMargin = 10;
+        eyeBrowThickniss = 300;
         centerOffset = viewHeight / 3;
+
+        setMeasuredDimension(viewWidth, viewHeight);
 
         switch (whatToDraw) {
             case 0:
@@ -141,11 +150,11 @@ public class SmileyRatingView extends View {
         super.onDraw(canvas);
 
         //Draw face BG
-        paint.setColor(faceColor);
+        paint.setColor(whatToDraw == 0 ? faceColorRed : faceColor);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawArc(faceBgOval, 0, 180, true, paint);
 
+        canvas.drawRect(0,0, viewWidth, viewHeight , paint);
 
         switch (whatToDraw) {
             case 0:
@@ -171,8 +180,23 @@ public class SmileyRatingView extends View {
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
 
-        canvas.drawCircle(currEyeLX, currEyeY, eyeRadius, paint);
-        canvas.drawCircle(currEyeRX, currEyeY, eyeRadius, paint);
+        canvas.save();
+
+        canvas.rotate(15, ((currEyeLX - 100) + (currEyeLX + 500))/2, (100 + 220) / 2);
+        canvas.drawRect(currEyeLX - 100, 100, currEyeLX + 500, 220, paint);
+
+        //restore canvas
+        canvas.restore();
+        canvas.save();
+
+        canvas.rotate(-15, ((currEyeRX - 500) + (currEyeRX + 100))/2, (100 + 220) / 2);
+        canvas.drawRect(currEyeRX - 500, 100, currEyeRX + 100, 220, paint);
+
+        //restore canvas
+        canvas.restore();
+
+        canvas.drawCircle(currEyeLX, currEyeY + (eyeRadius+ eyeTopMargin), eyeRadius, paint);
+        canvas.drawCircle(currEyeRX, currEyeY + (eyeRadius+ eyeTopMargin), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -184,14 +208,12 @@ public class SmileyRatingView extends View {
     }
 
     private void drawNeutralFace(Canvas canvas) {
-
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
 
-        canvas.drawCircle(currEyeLX, currEyeY, eyeRadius, paint);
-        canvas.drawCircle(currEyeRX, currEyeY, eyeRadius, paint);
-
+        canvas.drawCircle(currEyeLX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
+        canvas.drawCircle(currEyeRX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -212,8 +234,8 @@ public class SmileyRatingView extends View {
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
 
-        canvas.drawCircle(currEyeLX, currEyeY, eyeRadius, paint);
-        canvas.drawCircle(currEyeRX, currEyeY, eyeRadius, paint);
+        canvas.drawCircle(currEyeLX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
+        canvas.drawCircle(currEyeRX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -225,13 +247,12 @@ public class SmileyRatingView extends View {
     }
 
     private void drawHappyFace(Canvas canvas) {
-
         //Draw Eyes
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
 
-        canvas.drawCircle(currEyeLX, currEyeY, eyeRadius, paint);
-        canvas.drawCircle(currEyeRX, currEyeY, eyeRadius, paint);
+        canvas.drawCircle(currEyeLX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
+        canvas.drawCircle(currEyeRX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -248,9 +269,8 @@ public class SmileyRatingView extends View {
         paint.setColor(eyesColor);
         paint.setStyle(Paint.Style.FILL);
 
-        canvas.drawCircle(currEyeLX, currEyeY, eyeRadius, paint);
-        canvas.drawCircle(currEyeRX, currEyeY, eyeRadius, paint);
-
+        canvas.drawCircle(currEyeLX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
+        canvas.drawCircle(currEyeRX, currEyeY + (eyeRadius + eyeTopMargin), eyeRadius, paint);
 
         //Draw mouth
         paint.setColor(mouthColor);
@@ -300,7 +320,6 @@ public class SmileyRatingView extends View {
     }
 
     private void startEyesAnimation(int... newPositions) {
-
         leftEyeAnimatorX.setIntValues(currEyeLX, newPositions[0]);
         leftEyeAnimatorX.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -329,5 +348,4 @@ public class SmileyRatingView extends View {
         animatorSet.playTogether(rightEyeAnimatorX, leftEyeAnimatorX, eyesAnimatorY);
         animatorSet.start();
     }
-
 }
