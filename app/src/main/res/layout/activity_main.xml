@@ -16,7 +16,7 @@
             android:id="@+id/smiley_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            app:default_rating="0" />
+            app:default_rating="4" />
     </LinearLayout>
 
 </ScrollView>

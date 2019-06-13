@@ -16,10 +16,16 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.animation.PropertyValuesHolder;
 
-import java.util.logging.Logger;
+import java.util.Random;
+
 
 public class SmileyRatingView extends View {
+
+    private static final Logger  LOGGER = new Logger();
+    double MouthLeft, MouthRight, MouthBottom, MouthTop;
+    boolean MouthOpen;
 
     private int faceColor,faceColorRed, eyesColor, mouthColor, tongueColor, eyeBrowThickniss;
     private RectF faceBgOval, sadOval, neutralOval, slightHappyOval, happyOval, amazingOval, tongueOval;
@@ -138,12 +144,18 @@ public class SmileyRatingView extends View {
         happyOval.set((viewWidth / 2) - (viewWidth / 100 * 35), viewHeight - (viewHeight / 100 * 90),
                 (viewWidth / 2) + (viewWidth / 100 * 35), viewHeight - (viewHeight / 100 * 20));
 
-        amazingOval.set((viewWidth / 2) - (viewWidth / 100 * 35), viewHeight - (viewHeight / 100 * 90),
-                (viewWidth / 2) + (viewWidth / 100 * 35), viewHeight - (viewHeight / 100 * 15));
+        amazingOval.set((viewWidth / 2) - (viewWidth / 100 * 20), viewHeight - (viewHeight / 100 * 90),
+                (viewWidth / 2) + (viewWidth / 100 * 20), viewHeight - (viewHeight / 100 * 15));
 
-        tongueOval.set((viewWidth / 2) - (viewWidth / 100 * 20), viewHeight - (viewHeight / 100 * 60),
-                (viewWidth / 2) + (viewWidth / 100 * 20), viewHeight - (viewHeight / 100 * 20));
+        tongueOval.set((viewWidth / 2) - (viewWidth / 100 * 10), viewHeight - (viewHeight / 100 * 60),
+                (viewWidth / 2) + (viewWidth / 100 * 10), viewHeight - (viewHeight / 100 * 20));
+
+        MouthLeft = (viewWidth / 2) - (viewWidth / 100 * 25);
+        MouthRight = (viewWidth / 2) + (viewWidth / 100 * 25);
+        MouthBottom = viewHeight - (viewHeight / 100 * 20);
+        MouthTop = viewHeight - (viewHeight / 100 * 60);
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -243,7 +255,6 @@ public class SmileyRatingView extends View {
         paint.setStrokeWidth(strokeWidth);
         paint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawArc(slightHappyOval, 0, 180, false, paint);
-
     }
 
     private void drawHappyFace(Canvas canvas) {
@@ -260,7 +271,51 @@ public class SmileyRatingView extends View {
         paint.setStrokeWidth(strokeWidth);
         paint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawArc(happyOval, 0, 180, false, paint);
+    }
 
+    public void ChangeMouth(int randomLeftRight, int randomTopBottom) {
+
+        if (amazingOval.left > (MouthLeft + 250)) {
+           if(MouthOpen)
+               MouthOpen = false;
+        }
+
+        else if (amazingOval.left < (MouthLeft - 20))
+        {
+            if(!MouthOpen)
+            {
+                MouthOpen = true;
+            }
+        }
+
+        if(MouthOpen){
+            amazingOval.left += randomLeftRight;
+            amazingOval.right -= randomLeftRight;
+
+            tongueOval.left += 2 ;
+            tongueOval.right -= 2 ;
+
+            amazingOval.top += randomTopBottom;
+            amazingOval.bottom-= randomTopBottom;
+
+            tongueOval.top += 2 ;
+            tongueOval.bottom -= 2;
+        }
+
+        else {
+            amazingOval.left -= randomLeftRight;
+            amazingOval.right += randomLeftRight;
+
+            tongueOval.left -= 2;
+            tongueOval.right += 2;
+
+            amazingOval.top -= randomTopBottom;
+            amazingOval.bottom += randomTopBottom;
+
+            tongueOval.top -= 2;
+            tongueOval.bottom += 2;
+        }
+        postInvalidate();
     }
 
     private void drawAmazingFace(Canvas canvas) {
@@ -275,13 +330,13 @@ public class SmileyRatingView extends View {
         //Draw mouth
         paint.setColor(mouthColor);
         paint.setStyle(Paint.Style.FILL);
+
         canvas.drawArc(amazingOval, 0, 180, true, paint);
 
         //Draw tongue
         paint.setColor(tongueColor);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawArc(tongueOval, 0, 180, true, paint);
-
     }
 
     public void setSmiley(float rating) {
